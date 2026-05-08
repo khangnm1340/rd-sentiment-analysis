@@ -1,10 +1,18 @@
 # Analyzing Public Discussions for Product Insights
 
-This repository contains the assets for a data-mining capstone that unifies Reddit discussion dumps and Tiki product reviews into a reproducible topic–aspect analysis pipeline. The project delivers:
+**[📄 View the Final Report (PDF)](./final_report.pdf)**
 
-- A configurable CLI (`extra/run_pipeline.py`) for filtering corpora, vectorising them with TF-IDF, reducing dimensionality with SVD, clustering with KMeans, and layering aspect-level sentiment.
-- Reusable exploratory plots/CSVs under `eda/` and modelling artefacts under `extra/artifacts_*`.
-- Typst reports (`final_report.typ`, `final_report_vi.typ`) that document the full workflow in English and Vietnamese.
+This repository contains the code and assets for a data-mining capstone project that unifies Reddit discussion dumps and Tiki product reviews into a reproducible topic–aspect analysis pipeline. The goal is to surface recurring product issues, pros/cons, and topic trends across 16 hardware-centric communities. 
+
+By leveraging Arctic Shift to bypass Reddit API limits, we achieved multi-year coverage and normalized the data into harmonized Parquet files. Our automated CLI (`extra/run_pipeline.py`) transforms these filtered corpora into TF-IDF/SVD features, groups them with KMeans clustering, and applies aspect-level sentiment scoring using VADER.
+
+![Unified posts-and-comments Parquet preview](images/data_for_ML.png)
+
+### Key Deliverables
+
+- **Configurable CLI (`extra/run_pipeline.py`)**: Filters corpora, vectorizes with TF-IDF, reduces dimensionality with SVD, clusters with KMeans, and layers aspect-level sentiment.
+- **Reusable Assets**: Exploratory plots and CSVs under `eda/` and modelling artefacts under `extra/artifacts_*`.
+- **Comprehensive Reports**: Typst reports (`final_report.typ`, `final_report_vi.typ`) that document the full workflow in English and Vietnamese.
 
 The instructions below walk through environment setup, data collection, preprocessing, analysis, and report generation so you can reproduce the results end-to-end.
 
@@ -75,6 +83,13 @@ Install Arctic Shift following its upstream instructions (e.g., `pip install arc
 
 ## 3. Collect Raw Data
 
+We mine 16 hardware-centric Reddit communities (plus complementary Tiki reviews). Reddit supplies rich, text-first, community-moderated threads; Tiki adds verified purchase feedback from the Vietnamese market.
+
+<p align="center">
+  <img src="images/subreddits.png" width="45%" alt="Representative subreddit slate" />
+  <img src="images/tiki.png" width="45%" alt="Sample of Tiki camera reviews" />
+</p>
+
 1. **Clone this repository** and move into it:
    ```bash
    git clone <repo-url>
@@ -127,7 +142,18 @@ Adjust the script if you keep posts/comments separate. The important part is pro
 
 ## 5. Run Exploratory Data Analysis (EDA)
 
-The `eda/` directory already contains the PNG/CSV outputs referenced in the report. To regenerate them for a new dataset you can reuse the following template:
+The `eda/` directory already contains the PNG/CSV outputs referenced in the report. Below are some highlights from our exploratory data analysis, including community sizes, posting cadences, and word clouds.
+
+<p align="center">
+  <img src="eda/01_posts_by_subreddit.png" width="45%" alt="Post counts by subreddit" />
+  <img src="eda/15_weekday_hour_heatmap.png" width="45%" alt="Weekly/hourly heatmap of activity" />
+</p>
+<p align="center">
+  <img src="eda/13_wordcloud_titles.png" width="45%" alt="Title word cloud" />
+  <img src="eda/14_wordcloud_comments.png" width="45%" alt="Comment word cloud" />
+</p>
+
+To regenerate them for a new dataset you can reuse the following template:
 
 ```bash
 python <<'PY'
