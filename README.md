@@ -1,3 +1,6 @@
+>[!NOTE]
+>Most of my work happens in local prototypes and planning; I value a clean, working final product over a high commit count.
+
 # Analyzing Public Discussions for Product Insights
 
 **[📄 View the Final Report (PDF)](./final_report.pdf)**
