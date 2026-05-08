@@ -257,11 +257,11 @@ Typst looks up assets using relative paths, so ensure the regenerated figures re
 
 ## 9. Reproducibility Checklist
 
-1. ✅ Install Python dependencies and Typst.
-2. ✅ Download Reddit/Tiki dumps using Arctic Shift (or equivalent).
-3. ✅ Normalise to Parquet with the required columns.
-4. ✅ Regenerate EDA plots and CSVs, saving them in `eda/`.
-5. ✅ Run `extra/run_pipeline.py` for each product of interest, storing outputs in `extra/artifacts_*` directories.
-6. ✅ Compile the Typst reports for the final deliverables.
+1. Install Python dependencies and Typst.
+2. Download Reddit/Tiki dumps using Arctic Shift (or equivalent).
+3. Normalise to Parquet with the required columns.
+4. Regenerate EDA plots and CSVs, saving them in `eda/`.
+5. Run `extra/run_pipeline.py` for each product of interest, storing outputs in `extra/artifacts_*` directories.
+6. Compile the Typst reports for the final deliverables.
 
 Following the sequence above will reconstruct the datasets, analyses, and documents delivered in the original project.
